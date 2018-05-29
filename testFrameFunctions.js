@@ -2,12 +2,12 @@ function Expect(value){
   this.value = value
 }
 
-function expect(argument1) {
-  return (new Expect(argument1));
+function expect(argument) {
+  return (new Expect(argument));
 }
 
-Expect.prototype.toEqual = function(secondValue){
-  if (this.value === secondValue) {
+Expect.prototype.toEqual = function(value){
+  if (this.value === value) {
     console.log("PASSED")
   } else {
     console.log("FAILED")
@@ -36,7 +36,7 @@ Expect.prototype.lengthToBe = function(value){
   }
 };
 
-Expect.prototype.returns = function(value){
+Expect.prototype.toReturn = function(value){
   if (this.value() === value) {
     console.log('Yes, it returned the value')
   } else {
