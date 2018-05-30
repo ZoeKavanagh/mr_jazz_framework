@@ -7,10 +7,10 @@ function expect(argument) {
 };
 
 Expect.prototype.toEqual = function(value){
-  if (this.value === value) {
-    console.log("PASSED")
+  if (String(this.value) === String(value) {
+    return "PASSED"
   } else {
-    console.log("FAILED")
+    return "FAILED"
   }
 };
 
