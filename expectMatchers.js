@@ -25,9 +25,9 @@ Expect.prototype.toInclude = function(value){
     }
   }
   if (status === true) {
-    console.log('Yes, it is in the array.');
+    return 'Yes, it is in the array.';
   } else {
-    console.log('No, it is not in the array.')
+    return 'No, it is not in the array.';
   }
 };
 
