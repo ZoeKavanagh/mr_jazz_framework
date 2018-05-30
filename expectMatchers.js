@@ -8,50 +8,13 @@ function expect(argument) {
 
 Expect.prototype.toEqual = function(value2){
   if (typeof this.value === typeof value2) {
-    if (typeof value2 === Array) {
-      return this._arrayComparison(value2)
-    } else if (typeof this.value === object ) {
-      return this._hashComparison(value2)
-    } else {
-      return this._comparison(value2) }
+    return this._ultimateComparison(value2)
   } else {
     return "FAILED"
   }
 };
 
-Expect.prototype._comparison = function(value2){
-  if (String(this.value) === String(value2)) {
-    return "PASSED"
-  } else {
-    return "FAILED"
-  }
-};
 
-Expect.prototype._arrayComparison = function(value){
-  if (value.length != this.value.length ) {
-    return "FAILED"
-  } for (var i = 0; i < this.value.length; i++) {
-    if ( this.value[i] !== value[i]) {
-      return "FAILED"
-    }
-  }
-  return "PASSED"
-}
-
-Expect.prototype._hashComparison = function(value){
-  var aProp = Object.getOwnPropertyNames(this.value);
-  var bProp = Object.getOwnPropertyNames(value);
-
-  if (aProp.length != bProp.length ) {
-    return "FAILED"
-  } for (var i = 0; i < aProp.length; i++) {
-    var propName = aProp[i];
-    if ( this.value[propName] !== value[propName]) {
-      return "FAILED"
-    }
-  }
-  return "PASSED"
-}
 
 
 Expect.prototype.toInclude = function(value){
@@ -102,3 +65,49 @@ Expect.prototype.throwsError = function(value){
     }
   }
 };
+
+Expect.prototype._ultimateComparison = function(value2){
+  if (value2 instanceof Function) {
+    return this._comparison(value2)
+  }
+  else if (value2 instanceof Array) {
+    return this._arrayComparison(value2)
+  } else if (value2 instanceof Object ) {
+    return this._hashComparison(value2)
+  } else {
+    return this._comparison(value2) }
+}
+
+Expect.prototype._comparison = function(value2){
+  if (String(this.value) === String(value2)) {
+    return "PASSED"
+  } else {
+    return "FAILED"
+  }
+};
+
+Expect.prototype._arrayComparison = function(value){
+  if (value.length != this.value.length ) {
+    return "FAILED"
+  } for (var i = 0; i < this.value.length; i++) {
+    if ( this.value[i] !== value[i]) {
+      return "FAILED"
+    }
+  }
+  return "PASSED"
+}
+
+Expect.prototype._hashComparison = function(value){
+  var aProp = Object.getOwnPropertyNames(this.value);
+  var bProp = Object.getOwnPropertyNames(value);
+
+  if (aProp.length != bProp.length ) {
+    return "FAILED"
+  } for (var i = 0; i < aProp.length; i++) {
+    var propName = aProp[i];
+    if ( this.value[propName] !== value[propName]) {
+      return "FAILED"
+    }
+  }
+  return "PASSED"
+}
