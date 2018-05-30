@@ -1,0 +1,3 @@
+function Jaz(){
+  this.before = [];
+};

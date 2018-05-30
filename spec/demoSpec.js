@@ -1,5 +1,10 @@
-it("returns 'Hello World!'", function(){
+describe('Demo',function(){
   var demo;
-  demo = new Demo();
-  expect(demo.sayHello()).toReturn('Hello World!');
-});
+  beforeEach(function(){
+    demo = new Demo();
+  })
+
+  it("returns 'Hello World!'", function(){
+    expect(demo.sayHello()).toReturn('Hello World!');
+  });
+})
