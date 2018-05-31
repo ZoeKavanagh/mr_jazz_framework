@@ -1,5 +1,5 @@
 function fillIn(id, content){
-document.getElementById('ourForm').value = content ;
+document.getElementById(id).value = content;
 }
 
 function click(id){
@@ -10,7 +10,7 @@ function hasContent(string){
   str = document.documentElement.innerHTML;
   if (str.includes(string)) {
     testPass("content appears in document")
-  } else { testFailed(message) }
+  } else { testFailed("content does not appear in document") }
 
 
 }
