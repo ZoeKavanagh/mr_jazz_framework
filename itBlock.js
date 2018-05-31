@@ -1,5 +1,5 @@
 function it(testText, test) {
-  console.log(testText)
+  jaz.consoleArray.push(testText + ',')
   jaz.before[0]();
   test();
 };
