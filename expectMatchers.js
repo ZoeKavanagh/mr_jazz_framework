@@ -14,9 +14,6 @@ Expect.prototype.toEqual = function(value2){
   }
 };
 
-
-
-
 Expect.prototype.toInclude = function(value){
   var status;
   for (var i = 0; i < this.value.length; i++) {
@@ -36,22 +33,6 @@ Expect.prototype.toBeEmpty = function(){
     return 'Yes, it is empty'
   } else {
     return 'No, it is not empty'
-  }
-};
-
-Expect.prototype.lengthToBe = function(value){
-  if (this.value.length === value) {
-    console.log('Yes, it is the correct length.')
-  } else {
-    console.log('No, it is the wrong length.')
-  }
-};
-
-Expect.prototype.toReturn = function(value){
-  if (this.value === value) {
-    console.log('Yes, it returned the value')
-  } else {
-    console.log('No, it did not return the value')
   }
 };
 
