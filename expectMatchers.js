@@ -10,7 +10,7 @@ Expect.prototype.toEqual = function(value2){
   if (typeof this.value === typeof value2) {
     return this._ultimateComparison(value2)
   } else {
-    return testFailed("FAILED")
+    return testFailed("Values are not equal.")
   }
 };
 
@@ -22,17 +22,17 @@ Expect.prototype.toInclude = function(value){
     }
   }
   if (status === true) {
-    return 'Yes, it is in the array.';
+    return testPass("Value is included.");
   } else {
-    return 'No, it is not in the array.';
+    return testFailed("Value is not included.");
   }
 };
 
 Expect.prototype.toBeEmpty = function(){
   if (this.value.length === 0) {
-    return 'Yes, it is empty'
+    return testPass("Array is empty.");
   } else {
-    return 'No, it is not empty'
+    return testFailed("Array is not empty.");
   }
 };
 
@@ -42,7 +42,9 @@ Expect.prototype.throwsError = function(value){
   }
   catch(e) {
     if (e === value) {
-      console.log('This is the correct error')
+      return testPass("Correct error thrown.");
+    } else {
+      return testFailed("Error not thrown.");
     }
   }
 };
@@ -61,21 +63,21 @@ Expect.prototype._ultimateComparison = function(value2){
 
 Expect.prototype._comparison = function(value2){
   if (String(this.value) === String(value2)) {
-    return testPass("PASSED")
+    return testPass("Values are equal.");
   } else {
-    return testFailed("FAILED")
+    return testFailed("Values are not equal.")
   }
 };
 
 Expect.prototype._arrayComparison = function(value){
   if (value.length != this.value.length ) {
-    return testFailed("FAILED")
+    return testFailed("Values are not equal.")
   } for (var i = 0; i < this.value.length; i++) {
     if ( this.value[i] !== value[i]) {
-      return testFailed("FAILED")
+      return testFailed("Values are not equal.")
     }
   }
-  return testPass("PASSED")
+  return testPass("Values are equal.")
 }
 
 Expect.prototype._hashComparison = function(value){
@@ -83,12 +85,12 @@ Expect.prototype._hashComparison = function(value){
   var bProp = Object.getOwnPropertyNames(value);
 
   if (aProp.length != bProp.length ) {
-    return testFailed("FAILED")
+    return testFailed("Values are not equal.")
   } for (var i = 0; i < aProp.length; i++) {
     var propName = aProp[i];
     if ( this.value[propName] !== value[propName]) {
-      return testFailed("FAILED")
+      return testFailed("Values are not equal.")
     }
   }
-  return testPass("PASSED")
+  return testPass("Values are equal.")
 }
