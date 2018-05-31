@@ -9,8 +9,3 @@ function stuntDouble (name, arrayMethod, resultArray) {
   return double;
 
 }
-var hello = stuntDouble("plane", ["hi","bye","pie","lie"], ["hi","bye","pie","lie"] )
-console.log(hello.hi())
-console.log(hello.bye())
-console.log(hello.pie())
-console.log(hello.lie())
