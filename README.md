@@ -1,6 +1,6 @@
-## Mr_Jazz's test framework
+# Mr_Jazz's test framework
 ```
-Mr Jazz is a simple test framework written in javascript in order to enable us to test our Mr. Jaz's Note application.  
+Mr Jazz is a simple test framework written in javascript in order to enable us to test our Mr. Jaz's Note application.   
 ```
 ## Installation
 
@@ -34,14 +34,14 @@ describe('Demo',function(){
 })
 
 ```
-## Matcher functions
+# Matcher functions
 
 ```
 Mr Jazz comes with a number of pre-written matcher functions to allow you to test your code. 
 These include:
 ```
 
-# Expect
+## Expect
 
 ```
 expect takes the expected returned output of whatever function you are testing and allows you to run the matcher functions on it. 
@@ -49,32 +49,32 @@ It should be written like the below, not the lower case e.
     expect(demo.sayHello()).toEqual('Hello World!');
 
 ```
-# toEqual
+## toEqual
 
 ```
 To Equal allows you to compare two objects and see if they are the same. 
 You can compare arrays, functions, strings, integers and objects.
 ```
-# toInclude
+## toInclude
 
 ```
 To include allows you to check whether an element is in an array. 
 toInclude works with all sorts of objects but not with nested arrays.
 ```
 
-# toBeEmpty
+## toBeEmpty
 
 ```
 toBeEmpty allows you to check whether an array is empty
 ```
 
-# throwsError
+## throwsError
 
 ```
 throwsError allows you to check whether a function throws an error or not.
 ```
 
-# Writing doubles and using them
+## Writing doubles and using them
 
 ```
 var double = stuntDouble(doublename, [method1, method2, method3, ...],
