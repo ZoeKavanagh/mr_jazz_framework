@@ -7,4 +7,8 @@ describe('Demo',function(){
   it("returns 'Hello World!'", function(){
     expect(demo.sayHello()).toEqual('Hello World!');
   });
+
+  it("equals 'Hello World!'", function(){
+    expect(demo.sayHello()).toEqual('Hello World!');
+  });
 })
