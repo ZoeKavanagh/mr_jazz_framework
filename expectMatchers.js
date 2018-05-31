@@ -33,9 +33,9 @@ Expect.prototype.toInclude = function(value){
 
 Expect.prototype.toBeEmpty = function(){
   if (this.value.length === 0) {
-    console.log('Yes, it is empty')
+    return 'Yes, it is empty'
   } else {
-    console.log('No, it is not empty')
+    return 'No, it is not empty'
   }
 };
 
