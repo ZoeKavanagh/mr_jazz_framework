@@ -20,7 +20,8 @@ Expect.prototype.toEqual = function(value2){
 Expect.prototype.toInclude = function(value){
   var status;
   for (var i = 0; i < this.value.length; i++) {
-    if (this.value[i] === value) {
+    if (typeof this.value[i] === typeof value) {
+      if (String(this.value[i]) === String(value))
       status = true;
     }
   }
