@@ -1,5 +1,6 @@
 // Test that toEqual works
 console.log("---- PROTOTYPE TOEQUALS TESTS ----")
+jaz = new Jaz();
 
 console.log("Returns true if to values are same and same type")
 console.log(isTrue(expect(1).toEqual(1) === "PASSED"))
